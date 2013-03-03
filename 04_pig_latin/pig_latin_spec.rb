@@ -64,4 +64,12 @@ describe "#translate" do
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
 
+  it "capitalized words are still capitalized" do
+    translate("Capitalized Words").should == "Apitalizedcay Ordsway"
+  end
+  
+  it "retain the punctuation from the original phrase" do
+    translate("Yes, of course!:)").should == "Yesay, ofay oursecay!:)"
+  end
+
 end
