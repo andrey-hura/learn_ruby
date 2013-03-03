@@ -96,8 +96,13 @@ describe Temperature do
   #
   # run *all* the tests during your refactoring, to make sure you did it right
   #
+  
   describe "utility class methods" do
-
+    it "converts temperature calling ctof and ftoc only" do
+      t = Temperature.new
+      t.ctof(0).should == 32
+      t.ftoc(32).should == 0
+    end
   end
 
   # Here's another way to solve the problem!
