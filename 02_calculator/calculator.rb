@@ -30,3 +30,4 @@ def factorial(a)
   a.times{|x| f *= x+1}
   f
 end
+
