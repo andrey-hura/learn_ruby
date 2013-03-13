@@ -26,8 +26,11 @@ def power(a,b)
 end
 
 def factorial(a)
-  f = 1
-  a.times{|x| f *= x+1}
-  f
+#  f = 1
+#  a.times{|x| f *= x+1}
+#  f
+
+if a > 0 then a*factorial(a-1) else 1 end
+
 end
 
