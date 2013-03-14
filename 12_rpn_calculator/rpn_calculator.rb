@@ -6,36 +6,35 @@ class RPNCalculator
   end
 
   def op
-    a,b = @stack.pop, @stack.pop
-    if (a.is_a? Numeric) && (b.is_a? Numeric) then
-      return [a,b]
+    oprnd_a,oprnd_b = @stack.pop, @stack.pop
+    if (oprnd_a.is_a? Numeric) && (oprnd_b.is_a? Numeric) then
+      return [oprnd_a,oprnd_b]
     else
       raise 'calculator is empty'
     end
   end
 
   def tokens(str)
-    a = str.split
     tokens = []
-    a.each do |x|
-      case x
+    str.split.each do |token|
+      case token
         when /\d+/
-          tokens.push(x.to_i)
+          tokens.push(token.to_i)
         when /\d+\.\d+/
-          tokens.push(x.to_f)
+          tokens.push(token.to_f)
         when /[\+\-\*\/]/
-          tokens.push(:"#{x}")
+          tokens.push(:"#{token}")
       end
     end
     tokens
   end
 
   def evaluate(str)
-    self.tokens(str).each do |x|
-      if x.is_a? Numeric then
-        self.push(x)
+    self.tokens(str).each do |token|
+      if token.is_a? Numeric then
+        self.push(token)
       else
-        case x
+        case token
           when :+
             self.plus
           when :-
@@ -50,28 +49,28 @@ class RPNCalculator
     self.value
   end
 
-  def push(a)
-    @stack.push(a)
+  def push(number)
+    @stack.push(number)
   end
 
   def plus
-    aop = self.op
-    @stack.push(aop[0] + aop[1])
+    operands = self.op
+    @stack.push(operands[0] + operands[1])
   end
 
   def minus
-    aop = self.op
-    @stack.push(aop[0] - aop[1])
+    operands = self.op
+    @stack.push(operands[0] - operands[1])
   end
 
   def times
-    aop = self.op
-    @stack.push(aop[0] * aop[1])
+    operands = self.op
+    @stack.push(operands[0] * operands[1])
   end
 
   def divide
-    aop = self.op
-    @stack.push(aop[0].to_f / aop[1].to_f)
+    operands = self.op
+    @stack.push(operands[0].to_f / operands[1].to_f)
   end
 
   def value
