@@ -1,9 +1,11 @@
 
-def ftoc(f)
-  (f-32)*5.0/9.0
+DIF = 32
+REL = 5.0/9.0
+
+def ftoc(fah)
+  (fah-DIF)*REL
 end
 
-def ctof(c)
-  c*9.0/5.0+32
+def ctof(cel)
+  cel/REL+DIF
 end
-

@@ -4,9 +4,9 @@ def echo(word) word end
 def shout(word) word.upcase end
 
 def repeat(word,times=2)
-#  ((word+" ")*times).rstrip
-
-  res = []; times.times{ res << word }; res.join(" ")
+  res = []
+  times.times{ res << word }
+  res.join(" ")
 end
 
 def start_of_word(word,length) word[0,length] end
