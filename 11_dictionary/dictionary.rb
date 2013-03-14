@@ -1,30 +1,28 @@
 
 class Dictionary
+
+  attr_reader :entries
+
   def initialize
-    @lib = {}
-  end
-  def entries
-    @lib
+    @entries = {}
   end
   def keywords
-    @lib.keys.sort
+    @entries.keys.sort
   end
-  def add(a={})
-    a = {a => nil} if a.is_a? String
-    a.each {|key,val| @lib[key] = val }
+  def add(words={})
+    words = {words => nil} if words.is_a? String
+    @entries.update(words)
   end
-  def include?(a)
-    @lib.key?(a)
+  def include?(word)
+    @entries.key?(word)
   end
-  def find(a)
-#    res = self.include?(a) ? {a => @lib[a]} : {}
-    res = {}
-    @lib.each {|key,val| res[key]=val if key[/^#{a}/]}
-    res
+  def find(word)
+    res = {}; @entries.each {|key,val| res[key]=val if key[/^#{word}/] }; res
   end
   def printable
     res = ''
-    @lib.sort.each {|key,val| res += %Q([#{key}] "#{val}"\n) }
-    res[0..res.length-2] # ? :) why doesn't printable output end whith \n
+    @entries.sort.each {|key,val| res += %Q([#{key}] "#{val}"\n) }
+    res[0..res.length-2]
   end
+
 end
