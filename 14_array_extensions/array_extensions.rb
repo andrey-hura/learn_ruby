@@ -1,9 +1,7 @@
 
 class Array
   def sum
-    sum = 0
-    self.each {|x| sum +=x}
-    sum
+    self.size > 0 ? self.inject(:+) : 0
   end
 
   def square
