@@ -1,5 +1,11 @@
 
+
+
+
 class Temperature
+
+  DIF = 32
+  REL = 5.0/9.0
 
   def initialize(temp={:c=>0})
     if temp.key?(:f) then
@@ -11,12 +17,12 @@ class Temperature
     end
   end
 
-  def ftoc(far)
-    (far-32)*5.0/9.0
+  def ftoc(fah)
+    (fah-DIF)*REL
   end
 
   def ctof(cel)
-    cel*9.0/5.0+32
+     cel/REL+DIF
   end
 
   def in_fahrenheit() @fah end
