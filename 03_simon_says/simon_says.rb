@@ -1,25 +1,19 @@
 
-def echo(a)
-  a
+def echo(word) word end
+
+def shout(word) word.upcase end
+
+def repeat(word,times=2)
+#  ((word+" ")*times).rstrip
+
+  res = []; times.times{ res << word }; res.join(" ")
 end
 
-def shout(a)
-  a.upcase
-end
+def start_of_word(word,length) word[0,length] end
 
-def repeat(a,b=2)
-  ((a+" ")*b).rstrip
-end
+def first_word(word) word.split[0] end
 
-def start_of_word(a,b)
-  a[0,b]
-end
-
-def first_word(a)
-  a.split[0]
-end
-
-def titleize(a)
-  a.gsub!(/(^\S)|(\b\S{4,})/){ |x| x.capitalize }
-  a.gsub("Over","over") # "over" is exception
+def titleize(sentence)
+  sentence.gsub!(/(^\S)|(\b\S{4,})/){ |word| word.capitalize }
+  sentence.gsub("Over","over") # "over" is exception
 end
