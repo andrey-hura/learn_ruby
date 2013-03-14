@@ -1,12 +1,12 @@
 
 def reverser
-  yield.gsub(/\b\w+/){|x| x.reverse}
+  yield.gsub(/\b\w+/){|sentence| sentence.reverse}
 end
 
-def adder(a=1)
-  yield+a
+def adder(oprnd_a=1)
+  yield+oprnd_a
 end
 
-def repeater(a=1)
-  a.times{yield}
+def repeater(count=1)
+  count.times{yield}
 end
