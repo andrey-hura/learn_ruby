@@ -1,36 +1,35 @@
 
-def add(a,b)
-  a+b
+# You may not have enough knowledge yet to complete `sum`. You will probably
+# need to use **loops** (e.g. `while`) or **iterators** (e.g. `each`) to
+# get the tests to pass.
+
+def add(oprnd_a,oprnd_b)
+  oprnd_a + oprnd_b
 end
 
-def subtract(a,b)
-  a-b
+def subtract(oprnd_a,oprnd_b)
+  oprnd_a - oprnd_b
 end
 
-def sum(a)
+def sum(num_array)
   sum = 0
-  a.each{|e| sum += e }
+  num_array.each{|num| sum += num }
   sum
 end
 
-def multiply(*a)
-  if a.length >= 1 then
+def multiply(*num_array)
+  if num_array.length >= 1 then
     res = 1
-    a.each{|e| res *= e}
+    num_array.each{|num| res *= num}
     res
   end
 end
 
-def power(a,b)
-  a**b
+def power(oprnd_a,oprnd_b)
+  oprnd_a**oprnd_b
 end
 
-def factorial(a)
-#  f = 1
-#  a.times{|x| f *= x+1}
-#  f
-
-if a > 0 then a*factorial(a-1) else 1 end
-
+def factorial(number)
+  if number > 0 then number*factorial(number-1) else 1 end
 end
 
