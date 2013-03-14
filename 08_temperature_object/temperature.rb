@@ -1,7 +1,4 @@
 
-
-
-
 class Temperature
 
   DIF = 32
