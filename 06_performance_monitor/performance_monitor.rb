@@ -1,6 +1,6 @@
 
-def measure(b=1)
-  a = Time.now
-  b.times { yield }
-  b > 1 ? (Time.now - a)/b : Time.now - a
+def measure(count=1)
+  time_a = Time.now
+  count.times { yield }
+  count > 1 ? (Time.now - time_a)/count : Time.now - time_a
 end
