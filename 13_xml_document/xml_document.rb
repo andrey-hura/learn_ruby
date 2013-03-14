@@ -4,8 +4,8 @@ class XmlDocument
   def initialize(nested=false)
     @nested = nested
     @nest = ''
-    @n = ""
-    if @nested then @n = "\n" end
+    @newline = ""
+    if @nested then @newline = "\n" end
   end
 
   def method_missing(tag,attr={})
@@ -14,13 +14,13 @@ class XmlDocument
     attr.each{|k,v| out += " #{k}='#{v}'" }
 
     if block_given? then
-      out +=">#@n"
+      out +=">#@newline"
       nest = @nest
       if @nested then @nest += "  " end
       out += @nest + yield
-      out += "#{nest}</#{tag}>#@n"
+      out += "#{nest}</#{tag}>#@newline"
     else
-      out +="/>#@n"
+      out +="/>#@newline"
     end
 
     out
